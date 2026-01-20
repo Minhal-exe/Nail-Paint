@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nail Art Contact Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.95);
+      min-height: 100vh;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s;
+    }
+
+    .back-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(255, 182, 193, 0.9), rgba(255, 192, 203, 0.9)), url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+
+    .hero * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 4em;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+    }
+
+    .hero .btn {
+      background: #FF69B4;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      transition: all 0.3s;
+    }
+
+    .hero .btn:hover {
+      background: #FF1493;
+      transform: scale(1.05);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .contact-info,
+    .contact-form,
+    .faq,
+    .testimonials {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .contact-info:hover,
+    .contact-form:hover,
+    .faq:hover,
+    .testimonials:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-info h2,
+    .contact-form h2,
+    .faq h2,
+    .testimonials h2 {
+      color: #FFB6C1;
+      margin-bottom: 20px;
+    }
+
+    .contact-info ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .contact-info li {
+      margin-bottom: 15px;
+      font-size: 1.1em;
+    }
+
+    .contact-info i {
+      color: #FFB6C1;
+      margin-right: 10px;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      transition: all 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: #FFB6C1;
+      box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1em;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
+    }
+
+    .faq .accordion-button {
+      background: #f8f9fa;
+      color: #FFB6C1;
+    }
+
+    .faq .accordion-button:not(.collapsed) {
+      background: #FFB6C1;
+      color: white;
+    }
+
+    .testimonials .swiper {
+      width: 100%;
+      height: 300px;
+    }
+
+    .testimonials .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .newsletter {
+      background: linear-gradient(135deg, #FF69B4, #FF1493);
+      color: white;
+      padding: 40px;
+      text-align: center;
+      border-radius: 15px;
+    }
+
+    .newsletter input {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .newsletter .btn {
+      background: white;
+      color: #FF69B4;
+      border: none;
+    }
+
+    .map-section iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 15px;
+    }
+
+    .social-links {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      color: #FFB6C1;
+      font-size: 2.5em;
+      margin: 0 20px;
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #FF69B4;
+      transform: scale(1.2);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5em;
+      }
+
+      .container {
+        padding: 20px 10px;
+      }
+
+      .back-button {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    #header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 80px;
+      background: linear-gradient(135deg, #ebafe3 0%, #d4a5e5 100%);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      position: sticky;
+      top: 0;
+      left: 0;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+
+    @media (max-width: 768px) {
+      #header {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #header {
+        padding: 10px 15px;
+      }
+    }
+
+    #header:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    #navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+
+    #navbar li {
+      list-style: none;
+      padding: 0 18px;
+      position: relative;
+    }
+
+    #navbar li a {
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      padding: 8px 0;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    #navbar li a:hover,
+    #navbar li a.active {
+      color: #ff4da6;
+      transform: translateY(-2px);
+    }
+
+    #navbar li a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #ff4da6, #ff99cc);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    #navbar li a:hover::after,
+    #navbar li a.active::after {
+      width: 40%;
+    }
+
+    #navbar li a:hover {
+      text-shadow: 0 0 8px rgba(255, 77, 166, 0.4);
+    }
+
+    #header {
+      position: sticky;
+      top: 0;
+      background: #ffd8f700;
+      z-index: 999;
+      animation: navFade 0.8s ease;
+    }
+
+    @keyframes navFade {
+      from {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section id="header">
+    <a href="#"><img src="Pictures/main logo.png" height="70px" width="200px" class="logo" alt="Logo Of Nav BAr"></a>
+    <div>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a class="active" href="contact.html">Contact</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="register.html">Login</a></li>
+      </ul>
+    </div>
+
+  </section>
+  <!-- <button class="back-button" onclick="window.location.href='index.html'" title="Go Back to Home">
+    <i class="fas fa-arrow-left"></i> -->
+  </button>
+  <div class="overlay">
+    <section class="hero">
+      <h1><i class="fas fa-paint-brush"></i> NailArt Studio</h1>
+      <p>Creative, Chic, and Trendy Nail Art for Every Occasion</p>
+      <a href="#contact" class="btn">Get in Touch</a>
+    </section>
+    <div class="container">
+      <div class="row section" id="contact">
+        <div class="col-lg-6" data-aos="fade-right">
+          <section class="contact-info">
+            <h2><i class="fas fa-envelope"></i> Get in Touch</h2>
+            <p>Book your appointment today! We're here to create stunning nail art designs tailored to your style, from
+              classic to avant-garde.</p>
+            <ul>
+              <li><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong>Tariq Road Near Chase Value</li>
+              <li><i class="fas fa-phone"></i> <strong>Phone:</strong>+92 3302319595</li>
+              <li><i class="fas fa-envelope"></i> <strong>Email:</strong> nailart@gamil.com</li>
+              <li><i class="fas fa-clock"></i> <strong>Business Hours:</strong> Monday - Saturday, 10 AM - 8 PM</li>
+            </ul>
+          </section>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <section class="contact-form">
+            <h2><i class="fas fa-paper-plane"></i> Send Us a Message</h2>
+            <form id="contactForm">
+              <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject" name="subject" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit Message</button>
+            </form>
+          </section>
+        </div>
+      </div>
+      <div class="section" data-aos="fade-up">
+        <section class="faq">
+          <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">How do I
+                  book an appointment?</button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">You can book online via our website or call us directly. We recommend
+                  booking in advance for popular times.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq2">Do you offer custom nail art designs?</button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Absolutely! Our artists specialize in personalized designs. Share your ideas
+                  during your consultation.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq3">What's your cancellation policy?</button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Please cancel or reschedule at least 24 hours in advance. Late cancellations
+                  may incur a fee.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="section" data-aos="fade-up">
+        <section class="testimonials">
+          <h2><i class="fas fa-star"></i> What Our Clients Say</h2>
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">"Incredible nail art! My designs always turn heads." - Haniya</div>
+              <div class="swiper-slide">"Professional service and stunning results every time." - Shanzay</div>
+              <div class="swiper-slide">"Custom designs that match my style perfectly!" - Tasmiya</div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </section>
+      </div>
+      <div class="section newsletter" data-aos="zoom-in">
+        <h2>Stay Glamorous</h2>
+        <p>Subscribe for nail art tips, trends, and exclusive offers.</p>
+        <input type="email" placeholder="Enter your email">
+        <button class="btn">Subscribe</button>
+      </div>
+      <div class="section map-section" data-aos="fade-up">
+        <h2><i class="fas fa-map"></i> Find Us</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1!2d-73.9857!3d40.7484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1633020000000!5m2!1sen!2sus"
+          allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <div class="social-links" data-aos="fade-up">
+        <h2>Follow Us</h2>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-pinterest"></i></a>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    AOS.init();
+    const swiper = new Swiper('.mySwiper', {
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      // Integrate with backend for real submission
+    });
+      
+  </script>
+</body>
+
+</html>
